@@ -31,9 +31,9 @@ kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manif
 # Create argocd namespace
 kubectl create namespace argocd
 
-# Apply the bootstrap YAML from GitHub
+# Apply the bootstrap YAML from GitHub, Use --server-side to avoid the 256KB annotation limit
 curl -sL https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/bootstrap/argocd-install.yaml \
-  | kubectl apply -n argocd -f -
+  | kubectl apply --server-side -n argocd -f -
 
 # Wait for ArgoCD to be ready
 kubectl wait --for=condition=ready pod -n argocd -l app.kubernetes.io/name=argocd-server --timeout=300s
