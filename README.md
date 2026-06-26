@@ -28,9 +28,10 @@ kubectl create -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/mani
 
 kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/crds/appproject-crd.yaml
 
-# Apply the bootstrap YAML from GitHub
+# Create argocd namespace
 kubectl create namespace argocd
 
+# Apply the bootstrap YAML from GitHub
 curl -sL https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/bootstrap/argocd-install.yaml \
   | kubectl apply -n argocd -f -
 
