@@ -1,3 +1,26 @@
+# This file is generated using the argocd umbrella chart from `https://github.com/utkarsh-homelab/homelab-infra-charts`:
+# helm template argocd charts/argocd/ \
+#   --namespace argocd --create-namespace \
+#   --skip-crds \
+#   --values charts/argocd/values/prod.yaml
+#
+# First add the upstream Helm repo:
+#   helm repo add argo https://argoproj.github.io/argo-helm
+#   helm repo update
+#
+# Then run 
+#   helm dependency build charts/argocd/
+#
+# Then the helm template command
+#
+# CRDs must be installed separately before applying this file:
+#   kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/crds/application-crd.yaml
+#   kubectl create -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/crds/applicationset-crd.yaml
+#   kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/crds/appproject-crd.yaml
+#
+# Apply with server-side apply to avoid 256KB annotation limit on the applicationset CRD:
+#   kubectl apply --server-side -n argocd -f bootstrap/argocd-install.yaml
+
 ---
 # Source: argocd/charts/argo-cd/templates/argocd-application-controller/serviceaccount.yaml
 apiVersion: v1

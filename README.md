@@ -38,6 +38,8 @@ curl -sL https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/b
 kubectl wait --for=condition=ready pod -n argocd -l app.kubernetes.io/name=argocd-server --timeout=300s
 ```
 
+For Detailed Instructions refer to this [Guide](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_04-argocd-bootstrap-and-gitops-setup-manual.md)
+
 ## Companion Repo
 
 Helm charts are maintained in [homelab-infra-charts](https://github.com/utkarsh-homelab/homelab-infra-charts).
