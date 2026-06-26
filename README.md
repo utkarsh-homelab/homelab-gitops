@@ -18,12 +18,24 @@ apps/
 |------|------|---------|
 | -2   | argocd | Self-management |
 
-## Bootstrap
+## Bootstrap Guide
 
 ```bash
+# Install ArgoCD CRDs from upstream 
+kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/crds/application-crd.yaml
+
+kubectl create -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/crds/applicationset-crd.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/crds/appproject-crd.yaml
+
+# Apply the bootstrap YAML from GitHub
 kubectl create namespace argocd
-kubectl apply -f https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/bootstrap/argocd-install.yaml
-kubectl apply -f https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/apps/root.yaml
+
+curl -sL https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/bootstrap/argocd-install.yaml \
+  | kubectl apply -n argocd -f -
+
+# Wait for ArgoCD to be ready
+kubectl wait --for=condition=ready pod -n argocd -l app.kubernetes.io/name=argocd-server --timeout=300s
 ```
 
 ## Companion Repo
