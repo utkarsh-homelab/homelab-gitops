@@ -6,10 +6,12 @@ ArgoCD App of Apps — single source of truth for the homelab Kubernetes cluster
 
 ```
 bootstrap/
-  └── argocd-install.yaml    # Raw manifests for initial ArgoCD install
+  ├── argocd-install.yaml    # Raw manifests for initial ArgoCD install
+  |
 apps/
   ├── root.yaml              # Root App of Apps entry point
-  └── argocd.yaml            # ArgoCD self-management (sync wave -2)
+  ├── argocd.yaml            # ArgoCD self-management (sync wave -2)
+  └── csi-driver-nfs.yaml    # NFS-backed dynamic PVCs (sync wave 1)
 ```
 
 ## Sync Waves
@@ -17,6 +19,7 @@ apps/
 | Wave | Apps | Purpose |
 |------|------|---------|
 | -2   | argocd | Self-management |
+|  1   | csi-driver-nfs | Storage |
 
 ## Bootstrap Guide
 
@@ -37,9 +40,15 @@ curl -sL https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/b
 
 # Wait for ArgoCD to be ready
 kubectl wait --for=condition=ready pod -n argocd -l app.kubernetes.io/name=argocd-server --timeout=300s
+
+# Apply root application (app-of-apps)
+kubectl apply -f https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/apps/root.yaml
 ```
 
-For Detailed Instructions on setting up ArgoCD refer to this [Guide - Manual](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_04-argocd-bootstrap-and-gitops-setup-manual.md) or [Guide - Automated](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_05-automating-argocd-bootstrap.md)
+For Detailed Instructions on setting up ArgoCD refer to:
+- [Guide - Manual](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_04-argocd-bootstrap-and-gitops-setup-manual.md)
+  OR
+- [Guide - Automated](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_05-automating-argocd-bootstrap.md)
 
 ## Companion Repo
 
