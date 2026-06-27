@@ -39,7 +39,7 @@ curl -sL https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/b
 kubectl wait --for=condition=ready pod -n argocd -l app.kubernetes.io/name=argocd-server --timeout=300s
 ```
 
-For Detailed Instructions refer to this [Guide](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_04-argocd-bootstrap-and-gitops-setup-manual.md)
+For Detailed Instructions on setting up ArgoCD refer to this [Guide - Manual](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_04-argocd-bootstrap-and-gitops-setup-manual.md) or [Guide - Automated](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_05-automating-argocd-bootstrap.md)
 
 ## Companion Repo
 
