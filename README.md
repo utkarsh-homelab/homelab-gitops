@@ -13,6 +13,7 @@ apps/
   ├── argocd.yaml            # ArgoCD self-management (sync wave -2)
   └── csi-driver-nfs.yaml    # NFS-backed dynamic PVCs (sync wave 1)
 ```
+---
 
 ## Sync Waves
 
@@ -20,6 +21,8 @@ apps/
 |------|------|---------|
 | -2   | argocd | Self-management |
 |  1   | csi-driver-nfs | Storage |
+
+---
 
 ## Bootstrap Guide
 
@@ -44,11 +47,19 @@ kubectl wait --for=condition=ready pod -n argocd -l app.kubernetes.io/name=argoc
 # Apply root application (app-of-apps)
 kubectl apply -f https://raw.githubusercontent.com/utkarsh-homelab/homelab-gitops/main/apps/root.yaml
 ```
+---
+
+## Detailed Guides
 
 For Detailed Instructions on setting up ArgoCD refer to:
 - [Guide - Manual](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_04-argocd-bootstrap-and-gitops-setup-manual.md)
-  OR
 - [Guide - Automated](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_05-automating-argocd-bootstrap.md)
+
+### Detailed Guides for other Apps
+
+- [Guide - csi-driver-nfs](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_06-csi-driver-nfs.md)
+
+---
 
 ## Companion Repo
 
