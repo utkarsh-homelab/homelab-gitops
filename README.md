@@ -14,7 +14,8 @@ apps/
   ├── metallb.yaml           # MetalLB Layer2 LoadBalancer (sync wave -1)
   ├── traefik.yaml           # Ingress controller (sync wave 0)
   ├── cert-manager.yaml      # TLS certs via Let's Encrypt DNS01 (sync wave 0)
-  └── csi-driver-nfs.yaml    # NFS-backed dynamic PVCs (sync wave 1)
+  ├── csi-driver-nfs.yaml    # NFS-backed dynamic PVCs (sync wave 1)
+  └── kube-prometheus-stack.yaml  # Monitoring stack (sync wave 1)
 ```
 ---
 
@@ -24,8 +25,8 @@ apps/
 |------|------|---------|
 | -2   | argocd | Self-management |
 | -1   | metallb | LoadBalancer IPs |
-| 0    | traefik, cert-manager | Ingress + TLS |
-|  1   | csi-driver-nfs | Storage |
+|  0   | traefik, cert-manager | Ingress + TLS |
+|  1   | csi-driver-nfs, kube-prometheus-stack | Storage + monitoring |
 
 ---
 
@@ -65,7 +66,7 @@ For Detailed Instructions on setting up ArgoCD refer to:
 - [Guide - CSI-Driver-NFS](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_06-csi-driver-nfs.md)
 - [Guide - MetalLB](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_07-metallb.md)
 - [Guide - Traefik + Cert-Manager](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_08-traefik-cert-manager.md)
-
+- [Guide - Kube-Prometheus-Stack](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_09-kube-prometheus-stack.md)
 ---
 
 ## Companion Repo
