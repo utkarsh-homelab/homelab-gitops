@@ -11,6 +11,7 @@ bootstrap/
 apps/
   ├── root.yaml              # Root App of Apps entry point
   ├── argocd.yaml            # ArgoCD self-management (sync wave -2)
+  ├── metallb.yaml           # MetalLB Layer2 LoadBalancer (sync wave -1)
   └── csi-driver-nfs.yaml    # NFS-backed dynamic PVCs (sync wave 1)
 ```
 ---
@@ -20,6 +21,7 @@ apps/
 | Wave | Apps | Purpose |
 |------|------|---------|
 | -2   | argocd | Self-management |
+| -1   | metallb | LoadBalancer IPs |
 |  1   | csi-driver-nfs | Storage |
 
 ---
@@ -57,7 +59,8 @@ For Detailed Instructions on setting up ArgoCD refer to:
 
 ### Detailed Guides for other Apps
 
-- [Guide - csi-driver-nfs](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_06-csi-driver-nfs.md)
+- [Guide - CSI-Driver-NFS](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_06-csi-driver-nfs.md)
+- [Guide - MetalLB](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_07-metallb.md)
 
 ---
 
