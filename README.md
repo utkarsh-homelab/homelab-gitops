@@ -12,6 +12,8 @@ apps/
   ├── root.yaml              # Root App of Apps entry point
   ├── argocd.yaml            # ArgoCD self-management (sync wave -2)
   ├── metallb.yaml           # MetalLB Layer2 LoadBalancer (sync wave -1)
+  ├── traefik.yaml           # Ingress controller (sync wave 0)
+  ├── cert-manager.yaml      # TLS certs via Let's Encrypt DNS01 (sync wave 0)
   └── csi-driver-nfs.yaml    # NFS-backed dynamic PVCs (sync wave 1)
 ```
 ---
@@ -22,6 +24,7 @@ apps/
 |------|------|---------|
 | -2   | argocd | Self-management |
 | -1   | metallb | LoadBalancer IPs |
+| 0    | traefik, cert-manager | Ingress + TLS |
 |  1   | csi-driver-nfs | Storage |
 
 ---
@@ -61,6 +64,7 @@ For Detailed Instructions on setting up ArgoCD refer to:
 
 - [Guide - CSI-Driver-NFS](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_06-csi-driver-nfs.md)
 - [Guide - MetalLB](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_07-metallb.md)
+- [Guide - Traefik + Cert-Manager](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_08-traefik-cert-manager.md)
 
 ---
 
