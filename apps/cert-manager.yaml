@@ -11,13 +11,13 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/utkarsh-homelab/homelab-infra-charts
-      targetRevision: main
+      targetRevision: HEAD
       path: charts/cert-manager
       helm:
         valueFiles:
           - values/prod.yaml
     - repoURL: https://github.com/utkarsh-homelab/homelab-infra-charts
-      targetRevision: main
+      targetRevision: HEAD
       path: charts/cert-manager/manifests
       directory:
         recurse: true
