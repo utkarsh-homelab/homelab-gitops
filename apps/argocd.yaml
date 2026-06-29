@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/utkarsh-homelab/homelab-infra-charts
-    targetRevision: HEAD
+    targetRevision: main
     path: charts/argocd
     helm:
       valueFiles:
