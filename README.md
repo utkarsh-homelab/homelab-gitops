@@ -8,14 +8,14 @@ ArgoCD App of Apps — single source of truth for the homelab Kubernetes cluster
 bootstrap/
   ├── argocd-install.yaml    # Raw manifests for initial ArgoCD install
   |
-apps/
-  ├── root.yaml              # Root App of Apps entry point
-  ├── argocd.yaml            # ArgoCD self-management (sync wave -2)
-  ├── metallb.yaml           # MetalLB Layer2 LoadBalancer (sync wave -1)
-  ├── traefik.yaml           # Ingress controller (sync wave 0)
-  ├── cert-manager.yaml      # TLS certs via Let's Encrypt DNS01 (sync wave 0)
-  ├── csi-driver-nfs.yaml    # NFS-backed dynamic PVCs (sync wave 1)
-  └── kube-prometheus-stack.yaml  # Monitoring stack (sync wave 1)
+infra-apps/
+  ├── infra-root.yaml               # Root App of Apps entry point for infra-apps
+  ├── argocd.yaml                   # ArgoCD self-management (sync wave -2)
+  ├── metallb.yaml                  # MetalLB Layer2 LoadBalancer (sync wave -1)
+  ├── traefik.yaml                  # Ingress controller (sync wave 0)
+  ├── cert-manager.yaml             # TLS certs via Let's Encrypt DNS01 (sync wave 0)
+  ├── csi-driver-nfs.yaml           # NFS-backed dynamic PVCs (sync wave 1)
+  └── kube-prometheus-stack.yaml    # Monitoring stack (sync wave 1)
 ```
 ---
 
@@ -71,4 +71,4 @@ For Detailed Instructions on setting up ArgoCD refer to:
 
 ## Companion Repo
 
-Helm charts are maintained in [homelab-infra-charts](https://github.com/utkarsh-homelab/homelab-infra-charts).
+Helm charts for infra-apps are maintained in [homelab-infra-charts](https://github.com/utkarsh-homelab/homelab-infra-charts).
