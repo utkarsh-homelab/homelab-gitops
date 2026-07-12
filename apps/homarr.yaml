@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homarr
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/utkarsh-homelab/homelab-app-charts
+    targetRevision: HEAD
+    path: charts/homarr
+    helm:
+      valueFiles:
+        - values/prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: homarr
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

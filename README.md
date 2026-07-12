@@ -6,7 +6,7 @@ ArgoCD App of Apps — single source of truth for the homelab Kubernetes cluster
 
 ```
 bootstrap/
-  ├── argocd-install.yaml    # Raw manifests for initial ArgoCD install
+  ├── argocd-install.yaml           # Raw manifests for initial ArgoCD install
   |
 infra-apps/
   ├── infra-root.yaml               # Root App of Apps entry point for infra-apps
@@ -15,7 +15,11 @@ infra-apps/
   ├── traefik.yaml                  # Ingress controller (sync wave 0)
   ├── cert-manager.yaml             # TLS certs via Let's Encrypt DNS01 (sync wave 0)
   ├── csi-driver-nfs.yaml           # NFS-backed dynamic PVCs (sync wave 1)
-  └── kube-prometheus-stack.yaml    # Monitoring stack (sync wave 1)
+  ├── kube-prometheus-stack.yaml    # Monitoring stack (sync wave 1)
+  ├── apps-root.yaml               # Root App of Apps entry point for self-hosted applications (sync wave 5)
+  |
+apps/
+  └── homarr.yaml                   # Homarr Dashboard (sync wave 10)
 ```
 ---
 
@@ -27,6 +31,8 @@ infra-apps/
 | -1   | metallb | LoadBalancer IPs |
 |  0   | traefik, cert-manager | Ingress + TLS |
 |  1   | csi-driver-nfs, kube-prometheus-stack | Storage + monitoring |
+|  5   | apps-root | App of Apps for self-hosted applications |
+|  10  | homarr | Homelab Dashboard |
 
 ---
 
@@ -61,14 +67,20 @@ For Detailed Instructions on setting up ArgoCD refer to:
 - [Guide - Manual](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_04-argocd-bootstrap-and-gitops-setup-manual.md)
 - [Guide - Automated](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_05-automating-argocd-bootstrap.md)
 
-### Detailed Guides for other Apps
+### Detailed Guides for Infra Apps
 
 - [Guide - CSI-Driver-NFS](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_06-csi-driver-nfs.md)
 - [Guide - MetalLB](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_07-metallb.md)
 - [Guide - Traefik + Cert-Manager](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_08-traefik-cert-manager.md)
 - [Guide - Kube-Prometheus-Stack](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_09-kube-prometheus-stack.md)
+
+### Detailed Guides for Self-Hosted Apps
+
+- [Guide - Homarr](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-03_01-homarr-dashboard.md)
+
 ---
 
-## Companion Repo
+## Companion Repos
 
-Helm charts for infra-apps are maintained in [homelab-infra-charts](https://github.com/utkarsh-homelab/homelab-infra-charts).
+Helm charts for infra apps are maintained in [homelab-infra-charts](https://github.com/utkarsh-homelab/homelab-infra-charts).
+Helm charts for self-hosted apps are maintained in [homelab-app-charts](https://github.com/utkarsh-homelab/homelab-app-charts).
