@@ -19,7 +19,8 @@ infra-apps/
   ├── apps-root.yaml               # Root App of Apps entry point for self-hosted applications (sync wave 5)
   |
 apps/
-  └── homarr.yaml                   # Homarr Dashboard (sync wave 10)
+  ├── homarr.yaml                   # Homarr Dashboard (sync wave 10)
+  └── calibre-web-automated.yaml    # CWA Digital Library Manager (sync wave 10)
 ```
 ---
 
@@ -33,6 +34,7 @@ apps/
 |  1   | csi-driver-nfs, kube-prometheus-stack | Storage + monitoring |
 |  5   | apps-root | App of Apps for self-hosted applications |
 |  10  | homarr | Homelab Dashboard |
+|  10  | calibre-web-automated | CWA Digital Library Manager |
 
 ---
 
@@ -77,10 +79,11 @@ For Detailed Instructions on setting up ArgoCD refer to:
 ### Detailed Guides for Self-Hosted Apps
 
 - [Guide - Homarr](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-03_01-homarr-dashboard.md)
-
+- [Guide - CWA](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-03_02-calibre-web-automated)
 ---
 
 ## Companion Repos
 
 Helm charts for infra apps are maintained in [homelab-infra-charts](https://github.com/utkarsh-homelab/homelab-infra-charts).
+
 Helm charts for self-hosted apps are maintained in [homelab-app-charts](https://github.com/utkarsh-homelab/homelab-app-charts).
