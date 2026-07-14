@@ -6,8 +6,8 @@ ArgoCD App of Apps — single source of truth for the homelab Kubernetes cluster
 
 ```
 bootstrap/
-  ├── argocd-install.yaml           # Raw manifests for initial ArgoCD install
-  |
+  └── argocd-install.yaml           # Raw manifests for initial ArgoCD install
+
 infra-apps/
   ├── infra-root.yaml               # Root App of Apps entry point for infra-apps
   ├── argocd.yaml                   # ArgoCD self-management (sync wave -2)
@@ -16,11 +16,13 @@ infra-apps/
   ├── cert-manager.yaml             # TLS certs via Let's Encrypt DNS01 (sync wave 0)
   ├── csi-driver-nfs.yaml           # NFS-backed dynamic PVCs (sync wave 1)
   ├── kube-prometheus-stack.yaml    # Monitoring stack (sync wave 1)
-  ├── apps-root.yaml               # Root App of Apps entry point for self-hosted applications (sync wave 5)
-  |
-apps/
+  └── apps-root.yaml               # Root App of Apps entry point for self-hosted applications (sync wave 5)
+
+self-hosted-apps/
   ├── homarr.yaml                   # Homarr Dashboard (sync wave 10)
-  └── calibre-web-automated.yaml    # CWA Digital Library Manager (sync wave 10)
+  ├── calibre-web-automated.yaml    # CWA Digital Library Manager (sync wave 10)
+  ├── navidrome.yaml                # Navidrome Music Server (sync wave 10)
+  └── slskd.yaml                    # slskd Soulseek Client (sync wave 10)
 ```
 ---
 
@@ -35,6 +37,8 @@ apps/
 |  5   | apps-root | App of Apps for self-hosted applications |
 |  10  | homarr | Homelab Dashboard |
 |  10  | calibre-web-automated | CWA Digital Library Manager |
+|  10  | navidrome | Music streaming (Subsonic-compatible) |
+|  10  | slskd | Soulseek client with web UI |
 
 ---
 
@@ -79,7 +83,9 @@ For Detailed Instructions on setting up ArgoCD refer to:
 ### Detailed Guides for Self-Hosted Apps
 
 - [Guide - Homarr](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-03_01-homarr-dashboard.md)
-- [Guide - CWA](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-03_02-calibre-web-automated)
+- [Guide - CWA](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-03_02-calibre-web-automated.md)
+- [Guide - Navidrome + slskd](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-03_03-navidrome-slskd.md)
+
 ---
 
 ## Companion Repos
