@@ -16,7 +16,8 @@ infra-apps/
   ├── cert-manager.yaml             # TLS certs via Let's Encrypt DNS01 (sync wave 0)
   ├── csi-driver-nfs.yaml           # NFS-backed dynamic PVCs (sync wave 1)
   ├── kube-prometheus-stack.yaml    # Monitoring stack (sync wave 1)
-  └── apps-root.yaml               # Root App of Apps entry point for self-hosted applications (sync wave 5)
+  ├── tenant-rbac.yaml              # Tenant Access (sync wave -2)
+  └── apps-root.yaml                # Root App of Apps entry point for self-hosted applications (sync wave 5)
 
 self-hosted-apps/
   ├── homarr.yaml                   # Homarr Dashboard (sync wave 10)
@@ -31,6 +32,7 @@ self-hosted-apps/
 | Wave | Apps | Purpose |
 |------|------|---------|
 | -2   | argocd | Self-management |
+| -2   | tenant-rbac | Tenant access |
 | -1   | metallb | LoadBalancer IPs |
 |  0   | traefik, cert-manager | Ingress + TLS |
 |  1   | csi-driver-nfs, kube-prometheus-stack | Storage + monitoring |
