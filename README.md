@@ -16,10 +16,13 @@ infra-apps/
   ├── cert-manager.yaml             # TLS certs via Let's Encrypt DNS01 (sync wave 0)
   ├── csi-driver-nfs.yaml           # NFS-backed dynamic PVCs (sync wave 1)
   ├── kube-prometheus-stack.yaml    # Monitoring stack (sync wave 1)
+  ├── local-path-provisioner.yaml   # Local path block storage for Kafka (sync wave 1)
+  ├── strimzi-kafka.yaml            # Strimzi Kafka operator (sync wave 2)
+  ├── kafka-cluster.yaml            # Kafka KRaft single-node cluster (sync wave 10)
   ├── tenant-rbac.yaml              # Tenant Access (sync wave -2)
   └── apps-root.yaml                # Root App of Apps entry point for self-hosted applications (sync wave 5)
 
-self-hosted-apps/
+apps/
   ├── homarr.yaml                   # Homarr Dashboard (sync wave 10)
   ├── calibre-web-automated.yaml    # CWA Digital Library Manager (sync wave 10)
   ├── navidrome.yaml                # Navidrome Music Server (sync wave 10)
@@ -35,12 +38,14 @@ self-hosted-apps/
 | -2   | tenant-rbac | Tenant access |
 | -1   | metallb | LoadBalancer IPs |
 |  0   | traefik, cert-manager | Ingress + TLS |
-|  1   | csi-driver-nfs, kube-prometheus-stack | Storage + monitoring |
+|  1   | csi-driver-nfs, kube-prometheus-stack, local-path-provisioner | Storage + monitoring |
+|  2   | strimzi-kafka | Kafka operator |
 |  5   | apps-root | App of Apps for self-hosted applications |
 |  10  | homarr | Homelab Dashboard |
 |  10  | calibre-web-automated | CWA Digital Library Manager |
 |  10  | navidrome | Music streaming (Subsonic-compatible) |
 |  10  | slskd | Soulseek client with web UI |
+|  10  | kafka-cluster | Kafka KRaft single-node cluster |
 
 ---
 
@@ -81,6 +86,7 @@ For Detailed Instructions on setting up ArgoCD refer to:
 - [Guide - MetalLB](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_07-metallb.md)
 - [Guide - Traefik + Cert-Manager](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_08-traefik-cert-manager.md)
 - [Guide - Kube-Prometheus-Stack](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_09-kube-prometheus-stack.md)
+- [Guide - Strimzi Kafka](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_10-strimzi-kafka.md)
 
 ### Detailed Guides for Self-Hosted Apps
 
