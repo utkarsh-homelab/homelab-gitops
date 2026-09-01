@@ -1,25 +1,25 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: tenant-root
-#   namespace: argocd
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "5"
-#   finalizers:
-#     - resources-finalizer.argocd.argoproj.io
-# spec:
-#   project: tenant
-#   source:
-#     repoURL: https://github.com/utkarsh-homelab/homelab-gitops-tenant
-#     targetRevision: HEAD
-#     path: apps
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: iresharma
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     syncOptions:
-#       - CreateNamespace=false
-#       - PruneLast=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tenant-root
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: tenant
+  source:
+    repoURL: https://github.com/utkarsh-homelab/homelab-gitops-tenant
+    targetRevision: HEAD
+    path: apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: iresharma
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
+      - PruneLast=true
