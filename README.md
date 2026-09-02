@@ -16,6 +16,7 @@ infra-apps/
   ├── cert-manager.yaml             # TLS certs via Let's Encrypt DNS01 (sync wave 0)
   ├── csi-driver-nfs.yaml           # NFS-backed dynamic PVCs (sync wave 1)
   ├── kube-prometheus-stack.yaml    # Monitoring stack (sync wave 1)
+  ├── alertmanager-discord-webhook.yaml # Alertmanager → Discord (sync wave 2)
   ├── local-path-provisioner.yaml   # Local path block storage for Kafka (sync wave 1)
   ├── strimzi-kafka.yaml            # Strimzi Kafka operator (sync wave 2)
   ├── cloudnative-pg.yaml           # CloudNativePG PostgreSQL operator (sync wave 2)
@@ -41,6 +42,7 @@ apps/
 | -1   | metallb | LoadBalancer IPs |
 |  0   | traefik, cert-manager | Ingress + TLS |
 |  1   | csi-driver-nfs, kube-prometheus-stack, local-path-provisioner | Storage + monitoring |
+|  2   | alertmanager-discord-webhook | Alertmanager → Discord notifications |
 |  2   | strimzi-kafka | Kafka operator |
 |  2   | cloudnative-pg | PostgreSQL operator |
 |  5   | apps-root | App of Apps for self-hosted applications |
@@ -92,6 +94,7 @@ For Detailed Instructions on setting up ArgoCD refer to:
 - [Guide - Kube-Prometheus-Stack](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_09-kube-prometheus-stack.md)
 - [Guide - Strimzi Kafka](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_10-strimzi-kafka.md)
 - [Guide - CloudNativePG PostgreSQL](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_11-cloudnative-pg.md)
+- [Guide - Alertmanager Discord Webhook](https://github.com/utkarsh-homelab/homelab-docs/blob/main/guides/guide-02_12-alertmanager-discord-webhook.md)
 
 ### Detailed Guides for Self-Hosted Apps
 
